@@ -16,7 +16,7 @@ def home():
     if not session.get('logged_in'):
         return render_template('admin.html')
     else:
-        return "Hello Admin!  <a href='/adminedit'>Enter people</a> <a href='/logout'>log out</a>"
+        return "Hello Admin!  <a href='/adminedit'>Enter</a> <a href='/logout'>logout</a>"
 
 @app.route("/user/<int:sid>")
 def get_user(sid):
