@@ -1,0 +1,19 @@
+
+{% extends "base.html" %}
+{% block content %}
+
+<form action="" method="post">
+    <p>{{ form.sid.label }}<br>
+       {{ form.sid }}</p>
+    <p>{{ form.name.label }}<br>
+       {{ form.name }}</p>
+    <p>{{ form.phone.label }}<br>
+       {{ form.phone }}</p>
+    <p>{{ form.email.label }}<br>
+       {{ form.email }}</p>
+    <p>{{ form.resume.label }}<br>
+       {{ form.resume }}</p>
+    <p>{{ form.submit }}</p>
+</form>
+
+{% endblock %}
