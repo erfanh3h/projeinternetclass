@@ -18,7 +18,7 @@ def home():
     else:
         return "Hello Admin!  <a href='/adminedit'>Enter</a> <a href='/logout'>logout</a>"
 
-@app.route("/user/<int:sid>")
+@app.route("/user/<int:sid>")#vared kardan dasti daneshjoo
 def get_user(sid):
     Session = sessionmaker(bind=engine)
     s = Session()
@@ -32,7 +32,7 @@ def get_user(sid):
     }
     return json.dumps(data)
 
-@app.route('/admin', methods=['POST'])
+@app.route('/admin', methods=['POST'])#safheye login admin
 def do_admin_login():
     if request.form['password'] == 'admin' and request.form['username'] == 'admin':
         session['logged_in'] = True
@@ -43,7 +43,7 @@ def do_admin_login():
 class showform(FlaskForm):
     sid = IntegerField('SID')
 
-@app.route("/user", methods=['GET','POST'])
+@app.route("/user", methods=['GET','POST'])#safheye moshahede daneshjooha
 def user():
     form = showform(request.form)
     if request.method == 'POST':
@@ -75,14 +75,15 @@ def logout():
     session['logged_in'] = False
     return home()
 
-class RegisterForm(FlaskForm):
+class RegisterForm(FlaskForm):#form baraye varad kardan dar db
     id = IntegerField('SID')
     username = StringField('Name')
     password = PasswordField('Phone')
     email = StringField('Email')
     address = StringField('Resume')
     submit = SubmitField('Sign In')
-@app.route("/adminedit", methods=['GET','POST'])
+    
+@app.route("/adminedit", methods=['GET','POST'])#safheye vared kardan daneshjoo
 def index():
     form= RegisterForm()
     if request.method == 'POST':
